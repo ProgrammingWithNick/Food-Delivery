@@ -147,11 +147,12 @@ The following preprocessing steps were performed to ensure data quality:
 
 ---
 
-## 📂 Project Structure
+📂 Project Structure
+
 zomato-data-analysis/
 │
 ├── data/
-│ └── zomato.csv # Raw dataset
+│   └── zomato.csv              # Raw dataset
 │
 ├── notebooks/
-│ └── Untitled.ipynb # Jupyter notebook with full analysis
+│   └── Untitled.ipynb          # Jupyter notebook with full analysis
