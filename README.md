@@ -5,154 +5,241 @@
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> 📊 A comprehensive data analysis project on Zomato restaurant dataset to uncover insights about restaurant ratings, pricing trends, cuisine preferences, and customer behavior across Indian cities.
+> 📊 A comprehensive Exploratory Data Analysis (EDA) project on the Zomato restaurant dataset to uncover insights about restaurant ratings, pricing trends, cuisine preferences, and customer behavior across Indian cities.
 
 ---
 
-## 📌 Table of Contents
-- [Overview](#-overview)
-- [Dataset](#-dataset)
-- [Tools & Libraries](#-tools--libraries)
-- [Data Preprocessing](#-data-preprocessing)
-- [Key Visualizations](#-key-visualizations)
-- [Insights & Findings](#-insights--findings)
-- [Business Recommendations](#-business-recommendations)
-- [Project Structure](#-project-structure)
-- [How to Run](#-how-to-run)
-- [Future Scope](#-future-scope)
-- [Author](#-author)
+# 📌 Table of Contents
+
+- [📖 Overview](#-overview)
+- [📁 Dataset](#-dataset)
+- [🛠️ Tools & Libraries](#️-tools--libraries)
+- [🧹 Data Preprocessing](#-data-preprocessing)
+- [📈 Key Visualizations](#-key-visualizations)
+- [💡 Insights & Findings](#-insights--findings)
+- [🎯 Business Recommendations](#-business-recommendations)
+- [📂 Project Structure](#-project-structure)
+- [▶️ How to Run](#️-how-to-run)
+- [🚀 Future Scope](#-future-scope)
+- [👨‍💻 Author](#-author)
+- [📜 License](#-license)
 
 ---
 
-## 📖 Overview
+# 📖 Overview
 
-This project performs an **exploratory data analysis (EDA)** on a large-scale Zomato restaurant dataset containing **117,000+ restaurants** across multiple Indian cities. The goal is to identify patterns and relationships between various features such as:
+This project performs an **Exploratory Data Analysis (EDA)** on a large-scale Zomato restaurant dataset containing **117,000+ restaurants** across multiple Indian cities.
 
-- 🏙️ City & Locality
-- 🍛 Cuisine Type
-- 💰 Average Cost for Two
-- ⭐ Ratings & Votes
-- 🚚 Delivery Time
-- 🎟️ Discount Percent
-- 📦 Order Type (Dine-In / Delivery / Takeaway)
+The main objective of this project is to analyze restaurant trends and discover meaningful insights related to:
 
-The insights derived can help restaurant owners, food delivery platforms, and customers make data-driven decisions.
+- 🏙️ City & locality distribution
+- 🍛 Popular cuisine types
+- 💰 Restaurant pricing trends
+- ⭐ Customer ratings & reviews
+- 🚚 Delivery performance
+- 🎟️ Discounts & monthly orders
+- 📦 Order preferences (Dine-In / Delivery / Takeaway)
 
----
-
-## 📁 Dataset
-
-- **Source**: Zomato Restaurant Data (synthetic/real-world aggregated)
-- **Rows**: 117,000+
-- **Columns**: 16
-
-### Feature Description
-
-| Feature Name          | Type        | Description |
-|----------------------|-------------|-------------|
-| `restaurant_id`      | Numerical   | Unique identifier for each restaurant |
-| `restaurant_name`    | Categorical | Name of the restaurant |
-| `cuisine_type`       | Categorical | Type of cuisine served |
-| `city`               | Categorical | City where restaurant is located |
-| `locality`           | Categorical | Specific locality within city |
-| `average_cost_for_two` | Numerical | Average cost for two people (₹) |
-| `rating`             | Numerical | Average customer rating (out of 5) |
-| `votes`              | Numerical | Number of user votes/ratings |
-| `delivery_time_min`  | Numerical | Average delivery time in minutes |
-| `discount_percent`   | Numerical | Discount percentage offered |
-| `menu_items_count`   | Numerical | Number of items on menu |
-| `monthly_orders`     | Numerical | Average monthly orders |
-| `review_count`       | Numerical | Number of written reviews |
-| `distance_km`        | Numerical | Delivery distance in km |
-| `establishment_year` | Numerical | Year restaurant was established |
-| `order_type`         | Categorical | Dine-In / Delivery / Takeaway |
+The analysis helps restaurant owners, food delivery platforms, and customers make better data-driven decisions.
 
 ---
 
-## 🛠️ Tools & Libraries
+# 📁 Dataset
 
-| Library | Purpose |
-|---------|---------|
-| 🐍 **NumPy** | Numerical operations |
-| 🐼 **Pandas** | Data manipulation & analysis |
-| 📊 **Matplotlib** | Basic plotting & visualization |
-| 🎨 **Seaborn** | Statistical data visualization |
-| 🔧 **Scikit-learn** | Preprocessing & modeling (optional) |
+- **Dataset Name:** Zomato Restaurant Dataset
+- **Total Rows:** 117,000+
+- **Total Columns:** 16
+- **File Format:** CSV
 
----
+## 📋 Features Description
 
-## 🧹 Data Preprocessing
-
-The following preprocessing steps were performed to ensure data quality:
-
-1. ✅ **Handling Missing Values** – Dropped rows with critical nulls, imputed others with median/mode.
-2. ✅ **Duplicate Removal** – Checked and removed duplicate restaurant entries.
-3. ✅ **Data Type Conversion** – Ensured numerical columns were properly typed.
-4. ✅ **Outlier Treatment** – Capped extreme values in `average_cost_for_two` and `delivery_time_min`.
-5. ✅ **Feature Scaling** – Applied normalization for certain numerical features in modeling phase.
-6. ✅ **Categorical Encoding** – Used one-hot encoding for categorical variables like `cuisine_type` and `city`.
-
----
-
-## 📈 Key Visualizations
-
-| Chart Type | Purpose |
-|------------|---------|
-| 📊 **Bar Chart** | Compare average ratings across cuisines and cities |
-| 📉 **Histogram** | Distribution of ratings, cost, and delivery time |
-| 🥧 **Pie Chart** | Proportion of order types (Dine-In vs Delivery vs Takeaway) |
-| 📈 **Line Chart** | Trend of monthly orders over different discount brackets |
-| 🔥 **Heatmap** | Correlation between numerical features |
-| 📦 **Box Plot** | Detect outliers in cost and ratings by cuisine |
+| Feature Name | Type | Description |
+|---|---|---|
+| `restaurant_id` | Numerical | Unique restaurant identifier |
+| `restaurant_name` | Categorical | Restaurant name |
+| `cuisine_type` | Categorical | Type of cuisine served |
+| `city` | Categorical | City location |
+| `locality` | Categorical | Area/locality within city |
+| `average_cost_for_two` | Numerical | Average cost for two people |
+| `rating` | Numerical | Restaurant rating (out of 5) |
+| `votes` | Numerical | Number of customer votes |
+| `delivery_time_min` | Numerical | Average delivery time |
+| `discount_percent` | Numerical | Discount percentage |
+| `menu_items_count` | Numerical | Total menu items |
+| `monthly_orders` | Numerical | Average monthly orders |
+| `review_count` | Numerical | Number of written reviews |
+| `distance_km` | Numerical | Delivery distance |
+| `establishment_year` | Numerical | Restaurant establishment year |
+| `order_type` | Categorical | Dine-In / Delivery / Takeaway |
 
 ---
 
-## 💡 Insights & Findings
+# 🛠️ Tools & Libraries
 
-### 🍛 Cuisine Analysis
-- **North Indian**, **Chinese**, and **Street Food** are the most common cuisines.
-- **Mediterranean** and **Seafood** restaurants tend to have **higher average ratings** (above 4.0).
-
-### 💰 Pricing Trends
-- Metropolitan cities like **Mumbai, Bangalore, Delhi** have significantly higher `average_cost_for_two` (₹1500–₹2000).
-- Smaller cities average around ₹800–₹1200 for two people.
-
-### ⭐ Ratings & Delivery Time
-- Weak **negative correlation** between `delivery_time_min` and `rating`.
-- Restaurants with delivery time >75 minutes often have **lower ratings**.
-
-### 🎟️ Discount & Orders
-- Discounts of **20–30%** positively impact `monthly_orders` and `votes`.
-- Very high discounts (50%) on low-rated restaurants **do not** significantly boost orders.
-
-### 🍽️ Order Type
-- **Dine-In** restaurants have **slightly higher average ratings** compared to Delivery or Takeaway.
-- Suggests that ambiance and service quality contribute to satisfaction.
-
-### 🏙️ Top Localities
-- **Koramangala (Bangalore)**, **Connaught Place (Delhi)**, and **HSR Layout (Bangalore)** have the highest concentration of top-rated restaurants.
+| Tool / Library | Purpose |
+|---|---|
+| 🐍 Python | Programming language |
+| 🐼 Pandas | Data analysis & manipulation |
+| 🔢 NumPy | Numerical computations |
+| 📊 Matplotlib | Data visualization |
+| 🎨 Seaborn | Statistical visualization |
+| 📓 Jupyter Notebook | Interactive analysis environment |
+| 🤖 Scikit-learn | Data preprocessing & modeling |
 
 ---
 
-## 🎯 Business Recommendations
+# 🧹 Data Preprocessing
 
-| Recommendation | Rationale |
-|----------------|-----------|
-| 🍽️ Open in high-density localities like Koramangala or Connaught Place | Higher footfall and rating potential |
-| 🍛 Offer popular cuisines (North Indian, Chinese) with regional specialties | Broader customer appeal |
-| 💰 Price between ₹800–₹1500 for two | Optimal price range for good ratings |
-| 🎟️ Offer introductory discounts of 20–30% | Boosts initial orders and votes |
-| 🚚 Keep delivery time under 45 minutes | Maintains positive customer experience |
-| 🍴 Focus on Dine-In quality initially | Builds strong rating foundation |
+The following preprocessing steps were performed:
+
+1. ✅ Handling missing values
+2. ✅ Removing duplicate records
+3. ✅ Correcting data types
+4. ✅ Outlier detection & treatment
+5. ✅ Feature scaling (optional)
+6. ✅ Encoding categorical variables
+7. ✅ Data cleaning and formatting
 
 ---
 
-📂 Project Structure
+# 📈 Key Visualizations
 
+| Visualization | Purpose |
+|---|---|
+| 📊 Bar Charts | Compare ratings and cuisines |
+| 📉 Histograms | Analyze distributions |
+| 🥧 Pie Charts | Order type distribution |
+| 📈 Line Charts | Monthly order trends |
+| 🔥 Heatmaps | Correlation analysis |
+| 📦 Box Plots | Detect outliers |
+
+---
+
+# 💡 Insights & Findings
+
+## 🍛 Cuisine Analysis
+
+- North Indian and Chinese cuisines are the most popular.
+- Mediterranean and Seafood restaurants tend to receive higher ratings.
+
+## 💰 Pricing Trends
+
+- Metro cities like Mumbai, Delhi, and Bangalore have higher average dining costs.
+- Smaller cities maintain more affordable pricing.
+
+## ⭐ Ratings & Delivery Time
+
+- Restaurants with faster delivery usually receive better ratings.
+- Delivery times above 75 minutes negatively impact customer satisfaction.
+
+## 🎟️ Discounts & Orders
+
+- Discounts between 20–30% increase customer orders significantly.
+- Extremely high discounts do not guarantee better engagement.
+
+## 🍽️ Order Preferences
+
+- Dine-In restaurants generally receive slightly higher ratings.
+- Better service quality and ambiance influence ratings positively.
+
+---
+
+# 🎯 Business Recommendations
+
+| Recommendation | Reason |
+|---|---|
+| 🍽️ Open restaurants in high-demand localities | Better visibility and customer reach |
+| 🍛 Focus on popular cuisines | Higher customer engagement |
+| 💰 Maintain balanced pricing | Improves customer retention |
+| 🎟️ Offer moderate discounts | Increases order volume |
+| 🚚 Reduce delivery time | Enhances customer experience |
+| ⭐ Improve dine-in experience | Boosts restaurant ratings |
+
+---
+
+# 📂 Project Structure
+
+```txt
 zomato-data-analysis/
 │
 ├── data/
-│   └── zomato.csv              # Raw dataset
+│   └── zomato.csv                  # Raw dataset
 │
 ├── notebooks/
-│   └── Untitled.ipynb          # Jupyter notebook with full analysis
+│   └── zomato_analysis.ipynb       # Jupyter notebook with analysis
+│
+├── images/
+│   └── charts/                     # Saved visualizations
+│
+├── requirements.txt                # Project dependencies
+│
+├── README.md                       # Project documentation
+│
+└── LICENSE                         # MIT license
+```
+
+---
+
+# ▶️ How to Run
+
+## 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/ProgrammingWithNick/Food-Delivery.git
+```
+
+## 2️⃣ Navigate to the Project Folder
+
+```bash
+cd Food-Delivery
+```
+
+## 3️⃣ Install Required Libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+## 4️⃣ Open Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+## 5️⃣ Run the Notebook
+
+Open:
+
+```bash
+notebooks/zomato_analysis.ipynb
+```
+
+Run all cells to view the complete analysis and visualizations.
+
+---
+
+# 🚀 Future Scope
+
+- 🤖 Machine Learning-based restaurant rating prediction
+- 📍 Location-wise recommendation system
+- 📈 Interactive dashboards using Power BI or Tableau
+- 🌐 Web deployment using Streamlit
+- 📊 Real-time restaurant analytics
+
+---
+
+# 👨‍💻 Author
+
+**Nikhil Khavdu**
+
+- 🎓 MCA Student
+- 💻 Full Stack Developer
+- 🚀 Passionate about Data Analytics, AI, and Web Development
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+Feel free to use, modify, and share this project for learning and educational purposes.
